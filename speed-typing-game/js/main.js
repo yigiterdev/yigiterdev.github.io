@@ -154,7 +154,7 @@ function init() {
   showWord(words);
   wordInput.addEventListener("input", startMatch);
   setInterval(countDown, 1000);
-  setInterval(checkStatus, time * 1000);
+  setInterval(checkStatus, 1000);
 }
 
 function startMatch() {
@@ -172,7 +172,9 @@ function startMatch() {
   }
 }
 function matchWords() {
-  if (wordInput.value.toLowerCase() === currentWord.innerHTML.toLowerCase()) {
+  if (
+    turkishToUpper(wordInput.value) === turkishToUpper(currentWord.innerHTML)
+  ) {
     message.innerHTML = "Doğru!";
     return true;
   } else {
@@ -198,4 +200,11 @@ function checkStatus() {
     message.innerHTML = "Oyun Bitti!";
     score = -1;
   }
+}
+function turkishToUpper(string) {
+  var letters = { i: "İ", ş: "Ş", ğ: "Ğ", ü: "Ü", ö: "Ö", ç: "Ç", ı: "I" };
+  string = string.replace(/(([iışğüçö]))/g, function (letter) {
+    return letters[letter];
+  });
+  return string.toUpperCase();
 }
