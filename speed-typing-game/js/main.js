@@ -191,6 +191,7 @@ function countDown() {
     isPlaying = false;
   }
   timeDisplay.innerHTML = time;
+  seconds.innerHTML = time;
 }
 function checkStatus() {
   if (!isPlaying && time === 0) {
