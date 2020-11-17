@@ -31,20 +31,24 @@
             type="text"
             class="form-control form-control-lg"
             placeholder="Start typing..."
+            autocomplete="off"
             id="word-input"
             autofocus
           />
-          <div class="input-group mb-3 mt-2">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01"
-                >Zorluk</label
-              >
+          <form id="settings-form">
+            <div class="input-group mb-3 mt-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Zorluk Seviyesi</label
+                >
+              </div>
+              <select class="custom-select" id="zorluk">
+                <option value="easy" selected>Kolay</option>
+                <option value="medium">Orta</option>
+                <option value="hard">Zor</option>
+              </select>
             </div>
-            <select class="custom-select" id="inputGroupSelect01 level-select">
-              <option value="1" selected>Medium</option>
-            </select>
-          </div>
-
+          </form>
           <h4 class="mt-3" id="message"></h4>
 
           <!-- Time & Score Columns -->
@@ -70,9 +74,9 @@
               <div class="card card-body bg-light text-dark">
                 <h5>Talimatlar</h5>
                 <p>
-                  Puan almak için her kelimeyi 5 saniye içerisinde doğru
-                  yazmalısınız. Yeniden oynamak için verilen kelimeyi yazın.
-                  Puanınız sıfırlanacaktır.
+                  Puan almak için her kelimeyi zorluğa göre gerekli süre
+                  içerisinde doğru yazmalısınız. Yeniden oynamak için verilen
+                  kelimeyi yazın. Puanınız sıfırlanacaktır.
                 </p>
               </div>
             </div>
@@ -80,7 +84,12 @@
         </div>
       </div>
     </div>
-
+    <div class="container text-center mt-4">
+        
+          <p>
+            &copy; Ahmet Buğra Yiğiter. You can see my other <a href="https://yigiterbugra.github.io/"> projects</a>
+          </p>
+        
     <script src="js/main.js"></script>
   </body>
 </html>

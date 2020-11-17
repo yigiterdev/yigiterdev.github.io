@@ -1,11 +1,20 @@
 window.addEventListener("load", init);
-
+const settingsForm = document.querySelector("#settings-form");
 const levels = {
   easy: 5,
   medium: 3,
   hard: 2,
 };
-let currentLevel = levels.medium;
+let currentLevel = levels.easy;
+settingsForm.addEventListener("change", (e) => {
+  if (e.target.value === "easy") {
+    currentLevel = levels.easy;
+  } else if (e.target.value === "medium") {
+    currentLevel = levels.medium;
+  } else if (e.target.value === "hard") {
+    currentLevel = levels.hard;
+  }
+});
 let time = currentLevel;
 let score = 0;
 let isPlaying;
@@ -145,7 +154,7 @@ function init() {
   showWord(words);
   wordInput.addEventListener("input", startMatch);
   setInterval(countDown, 1000);
-  setInterval(checkStatus, 5000);
+  setInterval(checkStatus, time * 1000);
 }
 
 function startMatch() {
@@ -163,7 +172,7 @@ function startMatch() {
   }
 }
 function matchWords() {
-  if (wordInput.value === currentWord.innerHTML) {
+  if (wordInput.value.toLowerCase() === currentWord.innerHTML.toLowerCase()) {
     message.innerHTML = "Doğru!";
     return true;
   } else {
