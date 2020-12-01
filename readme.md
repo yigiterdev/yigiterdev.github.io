@@ -1,4 +1,4 @@
-# yigiterbugra.github.io
+# yigiterdev.github.io
 
 ## vanilla-javascript-projects
 
